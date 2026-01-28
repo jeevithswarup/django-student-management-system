@@ -1,0 +1,45 @@
+{% load static %}
+{% block start %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <link rel="stylesheet" href="{% static 'mycss/results.css' %}">
+</head>
+
+<body>
+ <div>
+  <h3>Total:{{total_marks.total_marks}}</h3>
+
+  <h3>Rank:{{rank_position}}</h3>
+  
+ </div>
+
+
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Sr No.</th>
+      <th scope="col">Subjects</th>
+      <th scope="col">Marks</th>
+    
+    </tr>
+  </thead>
+  <tbody>
+    {%for q in queryset  %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{q.subject.subject_name}}</td>
+      <td>{{q.marks}}</td>
+     
+    </tr>  
+    {% endfor %}
+
+    </tbody>
+    </table>
+    </body>
+    </html>
+{% endblock %}
+    

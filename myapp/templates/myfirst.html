@@ -1,0 +1,65 @@
+{% load static %}
+{% block start %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+    <link rel="stylesheet" href="{% static 'log.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body style="background-color: pink;">
+    <div class="asid">
+        <h1 class="logo">Login</h1>
+        <p>
+                    <a class="b" style="margin-left: 130px; padding:0.7rem;" href="#"><i class="fa fa-facebook"></i></a> 
+                    <a class="b" href="#"><i class="fa fa-twitter"></i></a>  
+        </p>
+        <form method="post">
+            {% csrf_token %}
+                    <input name="user_name"class="entry" type="text" placeholder="Username" spellcheck="true" required ><br>
+                    <input name="password" class="entry" type="password" placeholder="Password" required>
+                    {% if error %}
+                    <p style="color:red;">{{ error }}</p>
+                    {% endif %}
+                    <p style="margin-left: 85px;"><a href="#"  class="fg">Forget your password?</a></p>
+                    <button  class="btn"><b>LOG IN</b></button>
+                    
+        </form>            
+        
+
+        <p>Don't have an account? <a href="/register">Register here</a></p>
+
+   </div>
+  
+   <div class="asid1">
+                    <h1 class="log2">HTML CSS Login <br> <span style="margin-left:70px;">Form</span></h1>
+                    <p class="ref">This Form is created using HTML andd CSS,<br>Actually this our first HTML and CSS Form <br>By Me & Shiro</p>
+   </div> 
+<!--
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">user_name</th>
+      <th scope="col">password</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in users_data %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{user.user_name}}</td>
+      <td>{{user.password}}</td>
+      
+    </tr>
+    {% endfor %}
+ </tbody>
+</table>
+-->
+  {% endblock %}    
+ 
+
+</body>
+</html>

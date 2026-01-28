@@ -1,0 +1,183 @@
+/* ===== General Styles ===== */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #c9ffcd, #e2e2e2);
+  margin: 0;
+  padding: 0;
+  color: #2c3e50;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 95%;
+  max-width: 1100px;
+  background: #ffffffcc;
+  padding: 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Page Title */
+.title {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 32px;
+  color: #34495e;
+  font-weight: 700;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #3498db;
+  margin: 8px auto 0;
+  border-radius: 5px;
+}
+
+/* ===== Search Bar ===== */
+.search-form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.search-container {
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+  border: 2px solid #3498db;
+  border-radius: 50px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0px 5px 12px rgba(0,0,0,0.08);
+}
+
+.search-input {
+  flex: 1;
+  padding: 14px 18px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background: none;
+}
+
+.search-button {
+  background: #3498db;
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search-button:hover {
+  background: #2176bd;
+  transform: scale(1.05);
+}
+
+/* ===== Table Styles ===== */
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+
+.table thead {
+  background: #3498db;
+  color: white;
+  border-radius: 12px;
+}
+
+.table th {
+  padding: 15px 12px;
+  font-weight: 600;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.table td {
+  padding: 15px 12px;
+  text-align: center;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0px 3px 8px rgba(0,0,0,0.05);
+}
+
+.table tr {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.table tr:hover td {
+  background: #f0f8ff;
+  transform: scale(1.01);
+}
+
+/* Student ID Link */
+.id-link {
+  color: #2980b9;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.id-link:hover {
+  color: #1a5276;
+  text-decoration: underline;
+}
+
+/* Empty Message */
+.no-data {
+  text-align: center;
+  padding: 20px;
+  font-style: italic;
+  color: #888;
+  font-size: 16px;
+}
+
+/* ===== Pagination ===== */
+.pagination {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.page-btn {
+  margin: 6px;
+  padding: 10px 16px;
+  background: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.page-btn:hover {
+  background: #2176bd;
+  box-shadow: 0px 5px 12px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+
+.page-info {
+  display: inline-block;
+  margin: 0 12px;
+  font-weight: bold;
+  font-size: 15px;
+  color: #2c3e50;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

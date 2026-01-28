@@ -1,0 +1,40 @@
+{% load static %}
+{% block start %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{% static 'log.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body style="background-color: rgb(6, 2, 3);">
+    <div class="asid">
+        <h1 class="logo">Register</h1>
+        <p>
+                    <a class="b" style="margin-left: 130px; padding:0.7rem;" href="#"><i class="fa fa-facebook"></i></a> 
+                    <a class="b" href="#"><i class="fa fa-twitter"></i></a>  
+        </p>
+        <form method="post">
+            {% csrf_token %}
+                    <label name="username" >Username</label><br>
+                    <input name="user_name"class="entry" type="text" placeholder="Username" spellcheck="true" required ><br>
+                    <label name="password" >Password</label><br>
+                    <input name="password" class="entry" type="password" placeholder="Password" required>
+                    
+                    <p style="margin-left: 85px;"><a href="#"  class="fg">Forget your password?</a></p>
+                    <button  class="btn"><b>Register</b></button>
+        </form>       
+        <p>Already have an account? <a href="/">Login here</a></p>
+                     {% if messages %}
+                      {% for message in messages %}
+                       <p style="color:red;">{{ message }}</p>
+                     {% endfor %}
+                     {% endif %}
+   </div>
+   <div class="asid1">
+                    <h1 class="log2">HTML CSS Register<br> <span style="margin-left:70px;">Form</span></h1>
+                    <p class="ref">This Form is created using HTML andd CSS,<br>Actually this our first HTML and CSS Form <br>By Me & Shiro</p>
+   </div> 
+{% endblock %} 

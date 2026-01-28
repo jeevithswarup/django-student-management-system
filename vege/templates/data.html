@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Students Data</title>
+  <link rel="stylesheet" href="{% static 'mycss/result.css' %}">
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="title">📚 Students Data</h1>
+
+    <!-- Search Form -->
+    <form method="get" class="search-form">
+      <div class="search-container">
+        <input type="text" name="search" value="{{ request.GET.search }}" class="search-input" placeholder="Search by ID, Name, Email...">
+        <button class="search-button">🔍</button>
+      </div>
+    </form>
+
+    <!-- Student Table -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Sr No.</th>
+          <th>Student ID</th>
+          <th>Department</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for student in page_obj %}
+        <tr>
+          <td>{{ forloop.counter }}</td>
+          <td>
+            <a href="{% url 'subject_mark' student.student_id %}" class="id-link">
+              {{ student.student_id }}
+            </a>
+          </td>
+          <td>{{ student.department }}</td>
+          <td>{{ student.name }}</td>
+          <td>{{ student.age }}</td>
+          <td>{{ student.email }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="6" class="no-data">🚫 No results found</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <!-- Pagination -->
+    <div class="pagination">
+      {% if page_obj.has_previous %}
+        <a href="?page=1{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}" class="page-btn">⏮ First</a>
+        <a href="?page={{ page_obj.previous_page_number }}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}" class="page-btn">⬅ Previous</a>
+      {% endif %}
+
+      <span class="page-info">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+
+      {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}" class="page-btn">Next ➡</a>
+        <a href="?page={{ page_obj.paginator.num_pages }}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}" class="page-btn">Last ⏭</a>
+      {% endif %}
+    </div>
+  </div>
+
+</body>
+</html>
